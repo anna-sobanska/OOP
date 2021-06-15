@@ -8,22 +8,31 @@ public:
 	string ownerName;
 	int contributorsCount;
 	list<string> publicRepositories;
+
+	GitHubChannel (string name, string ownerName){
+		name = name;
+		ownerName = ownerName;
+		contributorsCount = 0;
+	}
+
+	void getInfo() {
+		cout << "Name: " << name << endl;
+		cout << "Owner Name: " << ownerName << endl;
+		cout << "Contributors Count: " << contributorsCount << endl;
+		cout << "Repositories: " << endl;
+		for (string publicRepository : publicRepositories)
+			cout << publicRepository << endl;
+	}
 };
 
 int main() 
 {
-	GitHubChannel ghChannel;
-	ghChannel.name = "anna-sobanska";
-	ghChannel.ownerName = "Anna Sobanska";
-	ghChannel.contributorsCount = 2;
-	ghChannel.publicRepositories = { "Hello", "Calculator", "Game" };
+	GitHubChannel ghChannel("anna-sobanska", "Anna Sobanska");
+	ghChannel.publicRepositories.push_back("Hello");
+	ghChannel.publicRepositories.push_back("Calculator");
+	ghChannel.publicRepositories.push_back("Game");
 
-	cout << "Name: " << ghChannel.name << endl;
-	cout << "Owner Name: " << ghChannel.ownerName << endl;
-	cout << "Contributors Count: " << ghChannel.contributorsCount << endl;
-	cout << "Repositories: " << endl;
-	for (string publicRepository : ghChannel.publicRepositories)
-		cout << publicRepository << endl;
+	ghChannel.getInfo();
 
 	system("pause>0");
 }
