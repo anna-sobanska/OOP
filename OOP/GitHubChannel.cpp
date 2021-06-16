@@ -5,10 +5,10 @@ using namespace std;
 class GitHubChannel {
 private:
 	string name;
-	string ownerName;
 	int contributorsCount;
 	list<string> publicRepositories;
-
+protected:
+	string ownerName;
 public:
 	GitHubChannel (string name, string ownerName){
 		name = name;
@@ -35,17 +35,24 @@ public:
 	}
 };
 
+class DevGitHubChannel:public GitHubChannel {
+public:
+	DevGitHubChannel(string name, string ownerName): GitHubChannel (name, ownerName){
+	
+	}
+	void practice() {
+		cout <<  ownerName <<"practicing coding, webdevelopment and design" << endl;
+	}
+};
+
 int main() 
 {
-	GitHubChannel ghChannel("anna-sobanska", "Anna Sobanska");
-	ghChannel.addRepository("Hello");
-	ghChannel.addRepository("Calculator");
-	ghChannel.addRepository("Game");
-	ghChannel.contribute();
-	ghChannel.contribute();
-	ghChannel.uncontribute();
-
+	GitHubChannel ghChannel("annasobanska", "Anna");
+	DevGitHubChannel dghChannel("devania", "Ania");
+	dghChannel.getInfo();
+	dghChannel.practice();
 	ghChannel.getInfo();
-
+	
+	
 	system("pause>0");
 }
