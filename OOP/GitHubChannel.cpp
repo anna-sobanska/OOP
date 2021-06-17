@@ -12,8 +12,8 @@ protected:
 	int contentQuality;
 public:
 	GitHubChannel (string name, string ownerName){
-		name = name;
-		ownerName = ownerName;
+		this->name = name;
+		this->ownerName = ownerName;
 		contributorsCount = 0;
 		contentQuality = 0;
 	}
@@ -49,7 +49,7 @@ public:
 	
 	}
 	void practice() {
-		cout <<  ownerName <<"practicing coding, webdevelopment and design" << endl;
+		cout <<  ownerName <<" practicing coding, webdevelopment and design" << endl;
 		contentQuality++;
 
 	}
@@ -61,7 +61,7 @@ public:
 
 	}
 	void practice() {
-		cout << ownerName << "practicing math, operators and integrals" << endl;
+		cout << ownerName << " practicing math, operators and integrals" << endl;
 		contentQuality++;
 
 	}
@@ -78,6 +78,8 @@ int main()
 	mChannel.practice();
 	mChannel.practice();
 	mChannel.practice();
+	dghChannel.getInfo();
+	mChannel.getInfo();
 
 	GitHubChannel* ch1 = &dghChannel;
 	GitHubChannel* ch2 = &mChannel;
